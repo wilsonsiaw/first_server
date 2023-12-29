@@ -12,7 +12,8 @@ const server = http.createServer((req, res) => {
 // set the initial content type of files
 let contentType = "text/html";
 
-
+// get the extension of each file in the file path
+let extname = path.extname(filePath);
 
 // set the port based on available ports on user machine
 const PORT = process.env.PORT || 8080;
