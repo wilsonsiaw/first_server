@@ -5,8 +5,9 @@ const path = require("path");
 
 // create a server
 const server = http.createServer((req, res) => {
-    console.log(req.url);
-})
+    // build file paths for each file to be served
+    let filePath = path.join(__dirname, "public", req.url === "/" ? "index.html" : req.url);
+});
 
 // set the port based on available ports on user machine
 const PORT = process.env.PORT || 8080;
