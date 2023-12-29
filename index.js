@@ -32,6 +32,29 @@ const server = http.createServer((req, res) => {
             contentType = "image/png";
             break;
     }
+
+    // read the content from each file
+    fs.readFile(filePath, (err, content) => {
+        if (err) {
+            if (err.code == "ENOENT") {
+                // set what happens if a page is not found and server call not successful
+                fs.readFile(path.join(__dirname, "public", "404.html"), (err, content) => {
+                    res.writeHead(200, {
+                        "Content-Type": "text/html"
+                    });
+                    res.end(content, "utf8");
+                })
+            } else {
+                // A server error
+                res.writeHead(500);
+                res.end(`Server Error: ${err.code}`);
+            }
+        } else {
+            // set what happens if the server call is successful
+            res.writeHead(200, {"Content-Type": contentType});
+            res.end(content, "utf8");
+        }
+    });
 });
 
 // set the port based on available ports on user machine
