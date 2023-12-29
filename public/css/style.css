@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#homepage,
+#about,
+#contact,
+#not-found {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 20px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+#homepage {
+    background-color: #d59bf6;
+}
+
+#about {
+    background-color: #8594e4;
+}
+
+#about h1,
+#about h2 {
+    color: #fff;
+}
+
+#contact {
+    background-color: #ec729c;
+}
+
+#not-found {
+    background-color: #c51350;
+}
+
+#not-found h1,
+#not-found h2 {
+    color: #fff;
+}
